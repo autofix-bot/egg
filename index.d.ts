@@ -48,7 +48,7 @@ import 'egg-view';
 declare module 'egg' {
   export type EggLogger = Logger;
   // plain object
-  type PlainObject<T = any> = { [key: string]: T };
+  export type PlainObject<T = any> = { [key: string]: T };
 
   // Remove specific property from the specific class
   type RemoveSpecProp<T, P> = Pick<T, Exclude<keyof T, P>>;

@@ -13,6 +13,7 @@ import {
   HttpClientRequestURL,
   HttpClientRequestOptions,
   HttpClientResponse,
+  PlainObject,
 } from 'egg';
 
 // base context class
@@ -85,7 +86,8 @@ agent.httpclient.request('http://127.0.0.1', { method: 'GET' }).catch(() => {});
 agent.logger.info(agent.Service);
 agent.logger.info(agent.Controller);
 
-async function request<T = any>(url: HttpClientRequestURL, options: HttpClientRequestOptions): Promise<HttpClientResponse<T>> {
+async function request<T = any>(url: HttpClientRequestURL, options: HttpClientRequestOptions, obj?: PlainObject): Promise<HttpClientResponse<T>> {
+  if (obj) console.log(obj);
   const response = await agent.httpclient.request<T>(url, options);
   return response as HttpClientResponse<T>;
 }
