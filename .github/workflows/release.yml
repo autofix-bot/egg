@@ -1,7 +1,7 @@
 name: Release
 on:
   push:
-    branches: [ master, 2.x, 1.x ]
+    branches: [ master, 3.x, 2.x, 1.x ]
 
   workflow_dispatch: {}
 
@@ -14,4 +14,4 @@ jobs:
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
     with:
       checkTest: false
-      install: 'npm install --legacy-peer-deps --no-package-lock --no-fund'
+      install: 'npm install --no-package-lock --no-fund'
